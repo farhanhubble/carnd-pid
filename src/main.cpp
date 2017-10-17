@@ -60,7 +60,7 @@ int main()
           */
           // TODO: Initialize the pid variable.
           if(pid.initialized == false){
-            pid.Init(0.1,0.001,1.2,cte);
+            pid.Init(0.1,0.003,1.1,cte);
           }
           pid.UpdateError(cte);
           steer_value = pid.TotalError(); 
@@ -75,7 +75,12 @@ int main()
 
           json msgJson;
           msgJson["steering_angle"] = steer_value;
-          msgJson["throttle"] = 0.3;
+          if(abs(steer_value)>0.2 && speed > 30){
+            msgJson["throttle"] = -0.50;
+          }else{
+            msgJson["throttle"] = 0.30;
+          }
+          
           auto msg = "42[\"steer\"," + msgJson.dump() + "]";
           //std::cout << msg << std::endl;
           ws.send(msg.data(), msg.length(), uWS::OpCode::TEXT);
