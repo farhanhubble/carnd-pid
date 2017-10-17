@@ -60,7 +60,7 @@ int main()
           */
           // TODO: Initialize the pid variable.
           if(pid.initialized == false){
-            pid.Init(0.1,0.005,2.4,cte);
+            pid.Init(0.1,0.001,1.2,cte);
           }
           pid.UpdateError(cte);
           steer_value = pid.TotalError(); 
