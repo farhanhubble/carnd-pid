@@ -35,7 +35,7 @@ void PID::UpdateError(double cte) {
 }
 
 double PID::TotalError() {
-    cout << "p_error: " << p_error << " i_error: " << i_error << " d_error: " << d_error << endl;
+    //cout << "p_error: " << p_error << " i_error: " << i_error << " d_error: " << d_error << endl;
     return p_error + d_error + i_error;
 }
 
