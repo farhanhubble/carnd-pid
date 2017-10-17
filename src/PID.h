@@ -10,12 +10,16 @@ public:
   double i_error;
   double d_error;
 
+
   /*
   * Coefficients
   */ 
   double Kp;
   double Ki;
   double Kd;
+
+  double prev_cte;
+  double integral_cte;
 
   /*
   * Constructor
